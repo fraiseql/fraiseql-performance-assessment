@@ -1,0 +1,145 @@
+# Test Results (can be very large - 10GB+)
+tests/perf/results/
+tests/perf/jmeter/results/
+tests/perf/jmeter.log
+results/
+archive/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+*.log
+*.tmp
+.jmeter/
+
+# Framework-specific build artifacts
+
+# Node.js/JavaScript
+**/node_modules/
+**/*.tgz
+**/*.tar.gz
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+# Rust
+**/target/
+**/*.rs.bk
+**/Cargo.lock
+
+# .NET/C#
+**/bin/
+**/obj/
+**/*.user
+**/*.aps
+**/*.pch
+**/*.vspscc
+**/*.vssscc
+**/.builds
+**/*.pidb
+**/*.log
+**/*.svclog
+**/*.scc
+
+# Java
+**/*.class
+**/*.jar
+**/*.war
+**/*.ear
+**/*.nar
+**/target/
+**/.classpath
+**/.project
+**/.settings/
+**/*.iml
+**/*.ipr
+**/*.iws
+
+# PHP
+**/vendor/
+**/composer.lock
+**/*.phar
+
+# Python (additional patterns)
+**/*.egg
+**/*.eggs/
+**/pip-log.txt
+**/pip-delete-this-directory.txt
+**/.tox/
+**/.coverage
+**/.coverage.*
+**/htmlcov/
+**/.cache
+**/nosetests.xml
+**/coverage.xml
+**/*.cover
+**/.hypothesis/
+
+# Ruby
+**/Gemfile.lock
+**/.bundle/
+**/vendor/bundle
+
+# Docker & Container artifacts
+**/.dockerignore
+**/docker-entrypoint.sh
+**/.docker/
+**/docker-compose.override.yml
+docker-compose.override.yml
+
+# Docker volumes and data
+**/postgres-data/
+**/prometheus-data/
+**/grafana-data/
+postgres_data/
+prometheus_data/
+grafana_data/
+
+# Docker build artifacts
+**/Dockerfile~
+**/docker-compose~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.stackdump
+
+# Temporary compose files
+temp-compose.yml
+**/temp-compose.yml
+frameworks/php-laravel/php-tools/
+
+# Performance test artifacts
+*.jtl
+*.jmeter
+tests/perf/monitoring/results/
+jmeter.log
+

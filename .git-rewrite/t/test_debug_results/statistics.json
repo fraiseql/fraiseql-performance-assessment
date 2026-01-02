@@ -1,0 +1,34 @@
+{
+  "Ping Query" : {
+    "transaction" : "Ping Query",
+    "sampleCount" : 1,
+    "errorCount" : 1,
+    "errorPct" : 100.0,
+    "meanResTime" : 11.0,
+    "medianResTime" : 11.0,
+    "minResTime" : 11.0,
+    "maxResTime" : 11.0,
+    "pct1ResTime" : 11.0,
+    "pct2ResTime" : 11.0,
+    "pct3ResTime" : 11.0,
+    "throughput" : 90.9090909090909,
+    "receivedKBytesPerSec" : 20.063920454545457,
+    "sentKBytesPerSec" : 15.536221590909092
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 1,
+    "errorCount" : 1,
+    "errorPct" : 100.0,
+    "meanResTime" : 11.0,
+    "medianResTime" : 11.0,
+    "minResTime" : 11.0,
+    "maxResTime" : 11.0,
+    "pct1ResTime" : 11.0,
+    "pct2ResTime" : 11.0,
+    "pct3ResTime" : 11.0,
+    "throughput" : 90.9090909090909,
+    "receivedKBytesPerSec" : 20.063920454545457,
+    "sentKBytesPerSec" : 15.536221590909092
+  }
+}

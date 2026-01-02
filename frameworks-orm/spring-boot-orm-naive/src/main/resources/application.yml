@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: fraiseql-spring-boot-orm-naive
+
+  datasource:
+    url: jdbc:postgresql://postgres:5434/fraiseql_benchmark
+    username: benchmark
+    password: benchmark123
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        # NAIVE: Show SQL to demonstrate N+1 queries
+        show_sql: true
+        format_sql: true
+        generate_statistics: false
+        # NAIVE: Default batch fetch size (no optimization)
+        default_batch_fetch_size: 1
+
+  # Disable GraphQL for REST-only implementation
+  graphql:
+    enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus,info
+  endpoint:
+    health:
+      show-details: when_authorized
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.orm.jpa: INFO
+    # NAIVE: Enable Hibernate SQL logging to show N+1 queries
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.zaxxer.hikari: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+server:
+  port: 8014
+  servlet:
+    context-path: /
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 10
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024

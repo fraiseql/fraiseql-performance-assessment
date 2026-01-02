@@ -1,0 +1,127 @@
+{
+  "version": "1.0",
+  "description": "Performance regression thresholds",
+
+  "global": {
+    "response_time_regression_percent": 15,
+    "throughput_regression_percent": 10,
+    "error_rate_max_percent": 1,
+    "p99_max_ms": 500
+  },
+
+  "frameworks": {
+    "fraiseql": {
+      "simple_query": {
+        "max_p95_ms": 10,
+        "max_p99_ms": 20,
+        "min_throughput_rps": 5000,
+        "max_avg_ms": 5
+      },
+      "parameterized_query": {
+        "max_p95_ms": 25,
+        "max_p99_ms": 50,
+        "min_throughput_rps": 2000,
+        "max_avg_ms": 15
+      },
+      "complex_query": {
+        "max_p95_ms": 100,
+        "max_p99_ms": 200,
+        "min_throughput_rps": 500,
+        "max_avg_ms": 50
+      },
+      "aggregation": {
+        "max_p95_ms": 150,
+        "max_p99_ms": 300,
+        "min_throughput_rps": 300
+      },
+      "deep_traversal": {
+        "max_p95_ms": 200,
+        "max_p99_ms": 400,
+        "min_throughput_rps": 200,
+        "max_query_count": 5
+      },
+      "mutation": {
+        "max_p95_ms": 50,
+        "max_p99_ms": 100,
+        "min_throughput_rps": 1000
+      }
+    },
+
+    "strawberry": {
+      "simple_query": {
+        "max_p95_ms": 15,
+        "max_p99_ms": 30,
+        "min_throughput_rps": 3000
+      },
+      "deep_traversal": {
+        "max_p95_ms": 500,
+        "max_p99_ms": 1000,
+        "notes": "Expected N+1 behavior"
+      }
+    },
+
+    "graphene": {
+      "simple_query": {
+        "max_p95_ms": 15,
+        "max_p99_ms": 30,
+        "min_throughput_rps": 3000
+      }
+    },
+
+    "fastapi-rest": {
+      "simple_query": {
+        "max_p95_ms": 8,
+        "max_p99_ms": 15,
+        "min_throughput_rps": 6000
+      }
+    },
+
+    "flask-rest": {
+      "simple_query": {
+        "max_p95_ms": 10,
+        "max_p99_ms": 20,
+        "min_throughput_rps": 4000
+      }
+    },
+
+    "apollo-server": {
+      "simple_query": {
+        "max_p95_ms": 12,
+        "max_p99_ms": 25,
+        "min_throughput_rps": 4000
+      }
+    },
+
+    "go-gqlgen": {
+      "simple_query": {
+        "max_p95_ms": 5,
+        "max_p99_ms": 10,
+        "min_throughput_rps": 10000,
+        "notes": "Expected highest performance due to compiled Go"
+      },
+      "deep_traversal": {
+        "max_p95_ms": 50,
+        "max_p99_ms": 100,
+        "min_throughput_rps": 2000
+      }
+    },
+
+    "gin-rest": {
+      "simple_query": {
+        "max_p95_ms": 3,
+        "max_p99_ms": 8,
+        "min_throughput_rps": 15000,
+        "notes": "Expected highest REST performance"
+      }
+    }
+  },
+
+  "workloads": {
+    "mixed": {
+      "max_p95_ms": 100,
+      "max_p99_ms": 250,
+      "min_throughput_rps": 1000,
+      "max_error_rate_percent": 0.5
+    }
+  }
+}

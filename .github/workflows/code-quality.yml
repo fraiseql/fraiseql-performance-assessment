@@ -1,0 +1,121 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  typescript:
+    name: TypeScript Linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: |
+            frameworks/express-rest/package-lock.json
+            frameworks/apollo-server/package-lock.json
+
+      - name: Install dependencies (express-rest)
+        working-directory: frameworks/express-rest
+        run: npm ci
+
+      - name: Lint express-rest
+        working-directory: frameworks/express-rest
+        run: |
+          npm run lint
+          npm run type-check
+
+      - name: Install dependencies (apollo-server)
+        working-directory: frameworks/apollo-server
+        run: npm ci
+
+      - name: Lint apollo-server
+        working-directory: frameworks/apollo-server
+        run: |
+          npm run lint
+          npm run type-check
+
+  python:
+    name: Python Linting
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        framework: [fastapi-rest, flask-rest, strawberry, graphene, fraiseql]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        working-directory: frameworks/${{ matrix.framework }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Lint with Ruff
+        working-directory: frameworks/${{ matrix.framework }}
+        run: python -m ruff check .
+
+      - name: Type check with MyPy
+        working-directory: frameworks/${{ matrix.framework }}
+        run: python -m mypy .
+        continue-on-error: true
+
+  rust:
+    name: Rust Linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Check format
+        working-directory: frameworks/actix-web-rest
+        run: cargo fmt --check
+
+      - name: Run Clippy
+        working-directory: frameworks/actix-web-rest
+        run: cargo clippy --all-targets --all-features -- -D warnings
+
+  go:
+    name: Go Linting
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        framework: [gin-rest, go-gqlgen]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.22'
+
+      - name: Check format
+        working-directory: frameworks/${{ matrix.framework }}
+        run: |
+          if [ -n "$(gofmt -s -l .)" ]; then
+            echo "Go code is not formatted:"
+            gofmt -s -d .
+            exit 1
+          fi
+
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: latest
+          working-directory: frameworks/${{ matrix.framework }}
+        continue-on-error: true

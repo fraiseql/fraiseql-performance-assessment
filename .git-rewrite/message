@@ -1,0 +1,16 @@
+fix(infrastructure): standardize health checks and network configuration
+
+- Updated docker-compose.yml health check intervals to 60s (from 30s/10s) to reduce overhead
+- Standardized health check timeouts to 15s across all services
+- Standardized retries to 3 across all services
+- Fixed Apollo Server health check to use GraphQL introspection query instead of non-existent /health endpoint
+- Updated Python framework health checks to use Python urllib instead of curl
+- Ensured all framework services explicitly use fraiseql-benchmark network
+- Fixed port mapping for Strawberry (8011:8000)
+
+Infrastructure improvements:
+- Created MONITORING_LINKS.md with quick reference for dashboards and endpoints
+- Fixed verify-frameworks.sh script with correct container name mappings
+- Added framework-specific health check endpoints mapping
+
+These changes ensure consistent health check behavior across all 9 frameworks and reduce resource overhead from frequent health checks.

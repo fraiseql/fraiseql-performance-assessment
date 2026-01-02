@@ -1,0 +1,43 @@
+schema:
+  - graph/*.graphqls
+
+exec:
+  filename: graph/generated.go
+
+resolver:
+  layout: follow-schema
+  dir: graph/resolver
+  package: resolver
+  omit_template_comment: true
+
+autobind:
+  - "gqlgen-orm-naive/graph/model"
+
+models:
+  ID:
+    model:
+      - github.com/99designs/gqlgen/graphql.ID
+      - github.com/99designs/gqlgen/graphql.String
+  Int:
+    model: github.com/99designs/gqlgen/graphql.Int
+  User:
+    model: gqlgen-orm-naive/graph/model.User
+    fields:
+      posts:
+        resolver: true
+      comments:
+        resolver: true
+  Post:
+    model: gqlgen-orm-naive/graph/model.Post
+    fields:
+      author:
+        resolver: true
+      comments:
+        resolver: true
+  Comment:
+    model: gqlgen-orm-naive/graph/model.Comment
+    fields:
+      post:
+        resolver: true
+      author:
+        resolver: true

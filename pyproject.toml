@@ -1,0 +1,23 @@
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "W", "B", "C4", "RUF"]
+ignore = ["E501", "RUF012"]  # RUF012: Allow unannotated class attrs (SQLAlchemy patterns)
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "F403"]
+"*_sqlalchemy.py" = ["RUF012"]  # SQLAlchemy __table_args__ pattern
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+strict_optional = true

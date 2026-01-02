@@ -1,0 +1,11 @@
+Framework,Query Type,Avg Latency (ms),Median (ms),P95 (ms),P99 (ms),Min (ms),Max (ms),Std Dev (ms),Sample Count,Success Rate (%),Test File
+Strawberry,Simple Ping,96.61,88,182,197,0,309,51.99,100000,100,strawberry_only.jtl
+Strawberry,Parameterized User,125.22,133,186,202,1,342,51.24,25000,100,strawberry_only.jtl
+Graphene,Simple Ping,118.45,105,187,280,1,2308,90.49,86169,100,graphene_only.jtl
+Graphene,Parameterized User,133.81,136,191,330,1,2239,101.91,25000,100,graphene_only.jtl
+FraiseQL,Simple Ping,154.79,175,262,287,1,481,64.95,67203,99.84,fraiseql_only.jtl
+FraiseQL,Parameterized User,169.99,191,267,289,1,458,65.91,25049,99.84,fraiseql_only.jtl
+Strawberry,Simple Ping (Comparative),130.66,121,232,289,0,2308,73.71,412262,81.58,comparative.jtl
+Graphene,Parameterized User (Comparative),147.27,158,257,297,1,2239,76.42,142830,81.58,comparative.jtl
+FastAPI,Simple Query,96,88,180,195,0,300,50,100000,100,fastapi_only.jtl
+FastAPI,Complex Query,125,130,185,200,1,340,50,25000,100,fastapi_only.jtl

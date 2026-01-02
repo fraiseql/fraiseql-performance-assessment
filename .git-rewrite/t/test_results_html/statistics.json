@@ -1,0 +1,50 @@
+{
+  "Simple Ping Query" : {
+    "transaction" : "Simple Ping Query",
+    "sampleCount" : 100000,
+    "errorCount" : 100000,
+    "errorPct" : 100.0,
+    "meanResTime" : 0.2319000000000005,
+    "medianResTime" : 0.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 15.0,
+    "pct1ResTime" : 1.0,
+    "pct2ResTime" : 1.0,
+    "pct3ResTime" : 1.0,
+    "throughput" : 3348.7375259527157,
+    "receivedKBytesPerSec" : 1036.6697223896592,
+    "sentKBytesPerSec" : 673.671806978769
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 125000,
+    "errorCount" : 125000,
+    "errorPct" : 100.0,
+    "meanResTime" : 0.24417599999999895,
+    "medianResTime" : 0.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 15.0,
+    "pct1ResTime" : 1.0,
+    "pct2ResTime" : 1.0,
+    "pct3ResTime" : 1.0,
+    "throughput" : 4185.921907440895,
+    "receivedKBytesPerSec" : 1425.0120868495078,
+    "sentKBytesPerSec" : 967.17687822316
+  },
+  "Parameterized User Query" : {
+    "transaction" : "Parameterized User Query",
+    "sampleCount" : 25000,
+    "errorCount" : 25000,
+    "errorPct" : 100.0,
+    "meanResTime" : 0.29327999999999876,
+    "medianResTime" : 0.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 15.0,
+    "pct1ResTime" : 1.0,
+    "pct2ResTime" : 1.0,
+    "pct3ResTime" : 1.0,
+    "throughput" : 1267.3628713373214,
+    "receivedKBytesPerSec" : 587.8880506691676,
+    "sentKBytesPerSec" : 444.3196004004867
+  }
+}

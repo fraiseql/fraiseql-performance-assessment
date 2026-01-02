@@ -1,0 +1,1313 @@
+{
+  "timestamp": "2025-12-20T08:05:29.627173",
+  "total_frameworks": 21,
+  "test_ids": {
+    "TEST_USER_ID": "11111111-1111-1111-1111-111111111111",
+    "TEST_POST_ID": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "TEST_COMMENT_ID": "11111111-1111-1111-1111-111111111111"
+  },
+  "frameworks": {
+    "fraiseql": {
+      "framework": "fraiseql",
+      "language": "python",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "fraiseql",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tv_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 20,
+            "expected_max": 30,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "strawberry": {
+      "framework": "strawberry",
+      "language": "python",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "strawberry",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "pass",
+            "http_status": 200,
+            "response": {
+              "status": "healthy",
+              "framework": "strawberry"
+            }
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 50,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "pass",
+            "method": "health_check",
+            "note": "Database connectivity verified via health check"
+          }
+        },
+        "queries": {
+          "framework": "strawberry",
+          "supported_queries": {
+            "ping": "pass",
+            "user": "pass",
+            "users": "pass",
+            "user_with_posts": "pass",
+            "posts": "pass",
+            "post_with_author": "pass",
+            "posts_with_author": "pass",
+            "posts_with_author_and_comments": "pass",
+            "user_with_posts_and_followers": "pass"
+          },
+          "issues": []
+        },
+        "n1_queries": {
+          "users_with_posts": {
+            "test_case": "users_with_posts",
+            "items_fetched": 10,
+            "query_count": 6,
+            "expected_query_count": 2,
+            "max_acceptable_queries": 3,
+            "status": "fail",
+            "efficiency_score": 0.3333333333333333,
+            "has_n1_pattern": true
+          },
+          "posts_with_authors": {
+            "test_case": "posts_with_authors",
+            "items_fetched": 10,
+            "query_count": 6,
+            "expected_query_count": 2,
+            "max_acceptable_queries": 3,
+            "status": "fail",
+            "efficiency_score": 0.3333333333333333,
+            "has_n1_pattern": true
+          }
+        },
+        "performance": {
+          "ping": {
+            "framework": "strawberry",
+            "query": "query { ping }",
+            "iterations": 5,
+            "successful_iterations": 5,
+            "avg_latency_ms": 3.8562774658203125,
+            "min_latency_ms": 2.9554367065429688,
+            "max_latency_ms": 4.762172698974609,
+            "p95_latency_ms": 4.762172698974609,
+            "p99_latency_ms": 4.762172698974609,
+            "errors": 0,
+            "status": "pass"
+          },
+          "timeout_rate": {
+            "framework": "strawberry",
+            "total_requests": 10,
+            "timeouts": 0,
+            "timeout_rate": 0.0,
+            "status": "pass"
+          }
+        }
+      },
+      "overall_status": "pass"
+    },
+    "graphene": {
+      "framework": "graphene",
+      "language": "python",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "graphene",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "pass",
+            "http_status": 200,
+            "response": {
+              "status": "healthy",
+              "framework": "graphene"
+            }
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 50,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "pass",
+            "method": "health_check",
+            "note": "Database connectivity verified via health check"
+          }
+        },
+        "queries": {
+          "framework": "graphene",
+          "supported_queries": {
+            "ping": "pass",
+            "user": "pass",
+            "users": "pass",
+            "user_with_posts": "pass",
+            "posts": "pass",
+            "post_with_author": "pass",
+            "posts_with_author": "pass",
+            "posts_with_author_and_comments": "pass",
+            "user_with_posts_and_followers": "pass"
+          },
+          "issues": []
+        },
+        "n1_queries": {
+          "users_with_posts": {
+            "test_case": "users_with_posts",
+            "items_fetched": 10,
+            "query_count": 6,
+            "expected_query_count": 2,
+            "max_acceptable_queries": 3,
+            "status": "fail",
+            "efficiency_score": 0.3333333333333333,
+            "has_n1_pattern": true
+          },
+          "posts_with_authors": {
+            "test_case": "posts_with_authors",
+            "items_fetched": 10,
+            "query_count": 6,
+            "expected_query_count": 2,
+            "max_acceptable_queries": 3,
+            "status": "fail",
+            "efficiency_score": 0.3333333333333333,
+            "has_n1_pattern": true
+          }
+        },
+        "performance": {
+          "ping": {
+            "framework": "graphene",
+            "query": "query { ping }",
+            "iterations": 5,
+            "successful_iterations": 5,
+            "avg_latency_ms": 4.452848434448242,
+            "min_latency_ms": 3.3240318298339844,
+            "max_latency_ms": 5.725622177124023,
+            "p95_latency_ms": 5.725622177124023,
+            "p99_latency_ms": 5.725622177124023,
+            "errors": 0,
+            "status": "pass"
+          },
+          "timeout_rate": {
+            "framework": "graphene",
+            "total_requests": 10,
+            "timeouts": 0,
+            "timeout_rate": 0.0,
+            "status": "pass"
+          }
+        }
+      },
+      "overall_status": "pass"
+    },
+    "fastapi-rest": {
+      "framework": "fastapi-rest",
+      "language": "python",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "fastapi-rest",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "pass",
+            "http_status": 200,
+            "response": {
+              "status": "healthy",
+              "framework": "fastapi-rest"
+            }
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 50,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "pass",
+            "method": "health_check",
+            "note": "Database connectivity verified via health check"
+          }
+        },
+        "queries": {
+          "framework": "fastapi-rest",
+          "supported_queries": {
+            "ping": "pass",
+            "health": "pass",
+            "user": "pass",
+            "users": "warning",
+            "user_with_posts": "pass",
+            "post": "pass",
+            "posts": "warning",
+            "posts_with_author": "warning"
+          },
+          "issues": [
+            "users: Missing field: id, Missing field: username",
+            "posts: Missing field: id, Missing field: title, Missing field: content",
+            "posts_with_author: Missing field: id, Missing field: title, Missing field: author"
+          ]
+        },
+        "n1_queries": {
+          "status": "skipped",
+          "reason": "REST framework"
+        },
+        "performance": {
+          "status": "skipped"
+        }
+      },
+      "overall_status": "pass"
+    },
+    "flask-rest": {
+      "framework": "flask-rest",
+      "language": "python",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "flask-rest",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "pass",
+            "http_status": 200,
+            "response": {
+              "framework": "flask-rest",
+              "status": "healthy"
+            }
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 50,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "pass",
+            "method": "health_check",
+            "note": "Database connectivity verified via health check"
+          }
+        },
+        "queries": {
+          "framework": "flask-rest",
+          "supported_queries": {
+            "ping": "pass",
+            "health": "pass",
+            "user": "fail",
+            "users": "fail",
+            "user_with_posts": "fail",
+            "post": "fail",
+            "posts": "fail",
+            "posts_with_author": "fail"
+          },
+          "issues": [
+            "user: HTTP 500: <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n",
+            "users: HTTP 500: <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n",
+            "user_with_posts: HTTP 500: <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n",
+            "post: HTTP 500: <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n",
+            "posts: HTTP 500: <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n",
+            "posts_with_author: HTTP 500: <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n"
+          ]
+        },
+        "n1_queries": {
+          "status": "skipped",
+          "reason": "REST framework"
+        },
+        "performance": {
+          "status": "skipped"
+        }
+      },
+      "overall_status": "fail"
+    },
+    "apollo-server": {
+      "framework": "apollo-server",
+      "language": "nodejs",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "apollo-server",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "pass",
+            "http_status": 200,
+            "response": {
+              "status": "healthy",
+              "framework": "apollo-server"
+            }
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 30,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "pass",
+            "method": "health_check",
+            "note": "Database connectivity verified via health check"
+          }
+        },
+        "queries": {
+          "framework": "apollo-server",
+          "supported_queries": {
+            "ping": "pass",
+            "user": "pass",
+            "users": "pass",
+            "user_with_posts": "pass",
+            "posts": "pass",
+            "post_with_author": "pass",
+            "posts_with_author": "pass",
+            "posts_with_author_and_comments": "pass",
+            "user_with_posts_and_followers": "pass"
+          },
+          "issues": []
+        },
+        "n1_queries": {
+          "users_with_posts": {
+            "test_case": "users_with_posts",
+            "items_fetched": 10,
+            "query_count": 2,
+            "expected_query_count": 2,
+            "max_acceptable_queries": 3,
+            "status": "pass",
+            "efficiency_score": 1.0,
+            "has_n1_pattern": false
+          },
+          "posts_with_authors": {
+            "test_case": "posts_with_authors",
+            "items_fetched": 10,
+            "query_count": 2,
+            "expected_query_count": 2,
+            "max_acceptable_queries": 3,
+            "status": "pass",
+            "efficiency_score": 1.0,
+            "has_n1_pattern": false
+          }
+        },
+        "performance": {
+          "ping": {
+            "framework": "apollo-server",
+            "query": "query { ping }",
+            "iterations": 5,
+            "successful_iterations": 5,
+            "avg_latency_ms": 1.633596420288086,
+            "min_latency_ms": 0.5388259887695312,
+            "max_latency_ms": 2.8846263885498047,
+            "p95_latency_ms": 2.8846263885498047,
+            "p99_latency_ms": 2.8846263885498047,
+            "errors": 0,
+            "status": "pass"
+          },
+          "timeout_rate": {
+            "framework": "apollo-server",
+            "total_requests": 10,
+            "timeouts": 0,
+            "timeout_rate": 0.0,
+            "status": "pass"
+          }
+        }
+      },
+      "overall_status": "pass"
+    },
+    "apollo-orm": {
+      "framework": "apollo-orm",
+      "language": "nodejs",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "apollo-orm",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "http_status": 400,
+            "error": "Expected 200, got 400"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 30,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "express-rest": {
+      "framework": "express-rest",
+      "language": "nodejs",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "express-rest",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "pass",
+            "http_status": 200,
+            "response": {
+              "status": "healthy",
+              "framework": "express-rest"
+            }
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 30,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "pass",
+            "method": "health_check",
+            "note": "Database connectivity verified via health check"
+          }
+        },
+        "queries": {
+          "framework": "express-rest",
+          "supported_queries": {
+            "ping": "pass",
+            "health": "pass",
+            "user": "pass",
+            "users": "warning",
+            "user_with_posts": "pass",
+            "post": "pass",
+            "posts": "warning",
+            "posts_with_author": "warning"
+          },
+          "issues": [
+            "users: Missing field: id, Missing field: username",
+            "posts: Missing field: id, Missing field: title, Missing field: content",
+            "posts_with_author: Missing field: id, Missing field: title, Missing field: author"
+          ]
+        },
+        "n1_queries": {
+          "status": "skipped",
+          "reason": "REST framework"
+        },
+        "performance": {
+          "status": "skipped"
+        }
+      },
+      "overall_status": "pass"
+    },
+    "express-orm": {
+      "framework": "express-orm",
+      "language": "nodejs",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "express-orm",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 30,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "go-gqlgen": {
+      "framework": "go-gqlgen",
+      "language": "go",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "go-gqlgen",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "http_status": 307,
+            "error": "Expected 200, got 307"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 30,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "go-graphql-go": {
+      "framework": "go-graphql-go",
+      "language": "go",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "go-graphql-go",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 30,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "gin-rest": {
+      "framework": "gin-rest",
+      "language": "go",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "gin-rest",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 30,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "async-graphql": {
+      "framework": "async-graphql",
+      "language": "rust",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "async-graphql",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "skipped",
+            "reason": "No pool configuration defined in registry"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "actix-web-rest": {
+      "framework": "actix-web-rest",
+      "language": "rust",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "actix-web-rest",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "info",
+            "expected_min": 10,
+            "expected_max": 30,
+            "note": "Pool configuration verification requires framework introspection"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "php-laravel": {
+      "framework": "php-laravel",
+      "language": "php",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "php-laravel",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "skipped",
+            "reason": "No pool configuration defined in registry"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "ruby-rails": {
+      "framework": "ruby-rails",
+      "language": "ruby",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "ruby-rails",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "skipped",
+            "reason": "No pool configuration defined in registry"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "csharp-dotnet": {
+      "framework": "csharp-dotnet",
+      "language": "csharp",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "csharp-dotnet",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "skipped",
+            "reason": "No pool configuration defined in registry"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "java-spring-boot": {
+      "framework": "java-spring-boot",
+      "language": "java",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "java-spring-boot",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "skipped",
+            "reason": "No pool configuration defined in registry"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "spring-boot-orm": {
+      "framework": "spring-boot-orm",
+      "language": "java",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "spring-boot-orm",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "skipped",
+            "reason": "No pool configuration defined in registry"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "spring-boot-orm-naive": {
+      "framework": "spring-boot-orm-naive",
+      "language": "java",
+      "type": "rest",
+      "checks": {
+        "schema": {
+          "framework": "spring-boot-orm-naive",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "skipped",
+            "reason": "No pool configuration defined in registry"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    },
+    "hasura": {
+      "framework": "hasura",
+      "language": "haskell",
+      "type": "graphql",
+      "checks": {
+        "schema": {
+          "framework": "hasura",
+          "status": "pass",
+          "missing_tables": [],
+          "expected_tables": [
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tb_comment"
+          ],
+          "actual_tables": [
+            "benchmark.tv_comment",
+            "benchmark.tb_user",
+            "benchmark.tb_post",
+            "benchmark.tv_user",
+            "benchmark.tv_post",
+            "benchmark.tb_comment"
+          ],
+          "issues": []
+        },
+        "config": {
+          "health": {
+            "status": "fail",
+            "error": "Connection refused - framework not running"
+          },
+          "metrics": {
+            "status": "skipped",
+            "reason": "No metrics endpoint defined"
+          },
+          "pool": {
+            "status": "skipped",
+            "reason": "No pool configuration defined in registry"
+          },
+          "database": {
+            "status": "unknown",
+            "method": "health_check",
+            "note": "Could not verify database connectivity"
+          }
+        }
+      },
+      "overall_status": "broken"
+    }
+  },
+  "summary": {
+    "total_frameworks": 21,
+    "status_breakdown": {
+      "pass": 5,
+      "warning": 0,
+      "fail": 1,
+      "broken": 15
+    },
+    "broken_frameworks": [
+      "fraiseql",
+      "apollo-orm",
+      "express-orm",
+      "go-gqlgen",
+      "go-graphql-go",
+      "gin-rest",
+      "async-graphql",
+      "actix-web-rest",
+      "php-laravel",
+      "ruby-rails",
+      "csharp-dotnet",
+      "java-spring-boot",
+      "spring-boot-orm",
+      "spring-boot-orm-naive",
+      "hasura"
+    ],
+    "failing_frameworks": [
+      "flask-rest"
+    ]
+  }
+}

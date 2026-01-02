@@ -1,0 +1,26 @@
+tree a437b942ef4984bb39703c17839c7eb0361a5f5a
+parent 145eb3bda514f01bf885b6b0907e7ce4076ab6cc
+author Lionel Hamayon <lionel.hamayon@evolution-digitale.fr> 1765965456 +0100
+committer Lionel Hamayon <lionel.hamayon@evolution-digitale.fr> 1765965456 +0100
+
+fix(strawberry): correct Docker port mapping and fix YAML indentation
+
+Issues fixed:
+1. Strawberry Dockerfile exposed port 8001 but application runs on 8000
+   - Updated EXPOSE directive to match actual port
+   - Fixes "connection reset" errors when accessing health endpoint externally
+
+2. Fixed docker-compose.yml YAML indentation issues
+   - Strawberry, FastAPI, and Flask health check blocks had inconsistent indentation
+   - All now properly aligned with 2-space indentation
+
+Result: All 9 frameworks now pass health checks
+- ✅ FraiseQL (4000)
+- ✅ Strawberry (8011)
+- ✅ Graphene (8002)
+- ✅ FastAPI (8003)
+- ✅ Flask (8004)
+- ✅ Apollo (4001)
+- ✅ Express (8005)
+- ✅ gqlgen (4003)
+- ✅ Gin (8006)
