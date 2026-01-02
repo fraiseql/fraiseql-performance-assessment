@@ -2,15 +2,21 @@
 
 ### *28-Framework GraphQL & REST Performance Benchmarking Infrastructure*
 
+> ⚠️ **Status**: This is a **work-in-progress benchmarking suite**. Phase 8 (monitoring) is complete, but **Phase 9 (full benchmark execution and analysis) has not yet been completed**. Framework integrations are implemented but have not been run to full completion across all 28 implementations.
+
 This repository contains:
 
-* **28 Production Frameworks** across 8 languages (Python, Node.js, Java, Go, Rust, C#/.NET, PHP, Ruby + Hasura)
+* **28 Framework Implementations** across 8 languages (Python, Node.js, Java, Go, Rust, C#/.NET, PHP, Ruby + Hasura)
+  - Individual Dockerfiles and implementations ready for deployment
+  - Some frameworks may require minor configuration adjustments
 * **A complete JMeter-based performance benchmarking suite** (`tests/perf/`)
+  - Validated infrastructure and test plans
+  - Ready for execution but full multi-framework runs are pending
 * **PostgreSQL 15 CQRS database** with comprehensive test data
-* **Prometheus + Grafana monitoring stack** for real-time metrics
+* **Prometheus + Grafana monitoring stack** (Phase 8 - Complete)
 * **Automated test infrastructure** (integration tests, QA validators, performance benchmarks)
 
-The goal of this repository is to provide a **production-ready environment for comparative performance testing** across multiple frameworks, languages, and architectural patterns, enabling data-driven framework selection and optimization.
+The goal of this repository is to provide a **comprehensive benchmarking environment for comparative performance testing** across multiple frameworks, languages, and architectural patterns. While the infrastructure is ready, **full production benchmark results across all 28 frameworks are pending completion in Phase 9**.
 
 ---
 
@@ -369,42 +375,85 @@ Workflow files located in `/ci/`.
 
 ---
 
-# 🧱 12. Roadmap
+# 🧱 12. Development Status & Roadmap
 
-### Completed:
+### ✅ Completed Phases:
 
-* ✅ **Phase 8: Resource Monitoring** - Prometheus/Grafana dashboards with real-time metrics
-* ✅ 8 Framework implementations (Python, Node.js, Go)
-* ✅ 8 Workload scenarios (simple → complex → mixed)
-* ✅ Realistic database content (10K+ users, blog posts)
+* **Phase 1-7**: Framework implementations and infrastructure setup
+  - ✅ 28 framework implementations (individual Dockerfiles, endpoints, configurations)
+  - ✅ PostgreSQL 15 CQRS database schema
+  - ✅ Realistic test data (10K+ users, blog posts, comments)
+  - ✅ 8 workload scenarios (simple → parameterized → complex → mixed)
+  - ✅ JMeter test plan infrastructure
 
-### Planned enhancements:
+* **Phase 8: Resource Monitoring** ✅ Complete
+  - ✅ Prometheus + Grafana monitoring stack
+  - ✅ 40+ recording rules and metrics
+  - ✅ 15-panel framework comparison dashboard
+  - ✅ Auto-provisioned datasources and dashboards
 
-* Phase 9: Execute all benchmarks and analyze results
+### 🔄 In Progress / Pending:
+
+* **Phase 9: Full Benchmark Execution & Analysis** ⏳ Pending
+  - Execute complete benchmark suite across all 28 frameworks
+  - Collect and analyze performance results
+  - Generate comparative reports
+  - Identify optimization opportunities
+
+### 📋 Known Limitations:
+
+* Full end-to-end benchmark execution across all 28 frameworks has **not been completed**
+* Some frameworks may require minor configuration adjustments
+* Individual framework health checks successful, but integrated multi-framework benchmarks pending
+* Performance baseline data not yet collected
+
+### 🚀 Future Enhancements:
+
 * Distributed load generation (multiple clients)
 * Configurable dataset generator
 * Automated anomaly detection
 * Query-plan explainability tools
+* Performance regression detection CI/CD integration
 
 ---
 
 # 📬 13. Support & Contributions
 
-Contributions are welcome!
-Please see `CONTRIBUTING.md` (coming soon).
+Contributions are welcome! This project is in active development and benefits from community testing and feedback.
+
+Please see `CONTRIBUTING.md` for:
+* How to report issues
+* Framework addition guidelines
+* Testing and validation procedures
+* Development workflow
+
+**This is a great project to contribute to if you:**
+- Want to help complete Phase 9 (benchmark execution)
+- Have expertise in specific frameworks
+- Can help validate and optimize implementations
+- Want to contribute monitoring or analysis improvements
 
 Questions or issues?
-Open a GitHub Issue in this monorepo or reach out to the maintainers.
+Open a GitHub Issue in this repository or reach out to the maintainers.
 
 ---
 
-# 🎉 **You're ready to benchmark FraiseQL!**
+# ⚙️ **Getting Started with This Work-In-Progress**
 
-This README provides everything needed to:
+This repository provides a comprehensive benchmarking infrastructure ready for:
 
-* Run the FraiseQL app
-* Execute performance benchmarks
-* Interpret output
-* Validate scalability
-* Detect regressions
-* Improve FraiseQL over time
+* **Framework Integration Testing** - Validate your framework works with the test suite
+* **Individual Framework Benchmarking** - Test a single framework's performance
+* **Infrastructure Development** - Improve monitoring, testing, or deployment
+* **Phase 9 Completion** - Help execute and analyze full benchmark suite
+
+**Not yet ready for:**
+* ❌ Production performance comparisons (Phase 9 pending)
+* ❌ Baseline performance metrics (not yet collected)
+* ❌ Complete multi-framework benchmarks (infrastructure ready, execution pending)
+
+**To get started:**
+1. Read `START_HERE.md` for quick setup
+2. Test a single framework to ensure your environment works
+3. Review `CONTRIBUTING.md` to see how you can help complete Phase 9
+4. Check `.phases/` documentation for development context
